@@ -16,6 +16,9 @@ app.get('/', (req, res) => {
 app.get('/api/info/:id', (req, res) => {
   var {id} = req.params;
   getGirl(id, girl => {
+    if(girl == undefined){
+      return res.send('')
+    }
     var r = `<h1>${girl.name}</h1>
     <div id="app">
       <a href="#" id="a-truoc">Truoc</a>

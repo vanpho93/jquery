@@ -18,13 +18,21 @@
     </style>
     <script type="text/javascript">
       $(document).ready(() => {
-        $('#a-truoc').click(() => {
+        $(document).on('click', '#a-truoc', () => {
+          var prevIndex = parseInt($('#girl-id').val()) - 1;
+          $.get(`/api/info/${prevIndex}`, data => {
+            if(data!=''){
+              $('#wrapper').html(data);
+            }
+          });
         });
 
-        $('#a-sau').click(() => {
+        $(document).on('click', '#a-sau', () => {
           var nextIndex = parseInt($('#girl-id').val()) + 1;
           $.get(`/api/info/${nextIndex}`, data => {
-            $('#wrapper').html(data);
+            if(data!=''){
+              $('#wrapper').html(data);
+            }
           });
         });
       });
