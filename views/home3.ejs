@@ -18,6 +18,7 @@
     </style>
     <script type="text/javascript">
       $(document).ready(() => {
+
         $(document).on('click', '#a-truoc', () => {
           var prevIndex = parseInt($('#girl-id').val()) - 1;
           $.get(`/api/info/${prevIndex}`, data => {
@@ -35,6 +36,13 @@
             }
           });
         });
+
+        $(document).on('click', '#a-like', () => {
+          var index = $('#girl-id').val();
+          $.get(`/api/like/${index}`, nlike => {
+              $('#a-like').html(nlike + " Like");
+          });
+        });
       });
     </script>
   </head>
@@ -48,8 +56,8 @@
         <hr>
         <img src="images/<%=girl.image%>" width="150px">
         <hr>
-        <a href="#"><%=girl.nlike%> Like</a>
-        <a href="#" class="a-right"><%=girl.ndislike%> Dislike</a>
+        <a href="#" id="a-like"><%=girl.nlike%> Like</a>
+        <a href="#" id="a-dislike" class="a-right"><%=girl.ndislike%> Dislike</a>
       </div>
     </div>
   </body>

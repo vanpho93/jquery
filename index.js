@@ -27,11 +27,15 @@ app.get('/api/info/:id', (req, res) => {
       <hr>
       <img src="images/${girl.image}" width="150px">
       <hr>
-      <a href="#">${girl.nlike} Like</a>
-      <a href="#" class="a-right">${girl.ndislike} Dislike</a>
+      <a href="#" id="a-like">${girl.nlike} Like</a>
+      <a href="#" id="a-dislike" class="a-right">${girl.ndislike} Dislike</a>
     </div>`;
     res.send(r);
   })
+})
+
+app.get('/api/like/:id', (req, res) => {
+  likeGirl(req.params.id, nlike => res.send('' + nlike));
 })
 //
 // app.get('/about', (req, res) => res.send('Khoa Pham training'))
