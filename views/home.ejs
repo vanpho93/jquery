@@ -4,13 +4,73 @@
     <meta charset="utf-8">
     <title>Homepage</title>
     <script src="jquery-3.1.1.min.js"></script>
+    <style media="screen">
+      .active{
+        color: red;
+      }
+
+      .odd{
+        color: red;
+      }
+    </style>
     <script type="text/javascript">
+      function getInfo(){
+        alert('v8');
+      }
+
       $(document).ready(()=>{
-        alert('abcd');
+        $('#btn-get-info').click(() => {
+          alert('v 3.1.1.min')
+        });
+
+        $('#btn-show').click(() => {
+          var msg = $('#txt-msg').val();
+          // var msg2 = document.getElementById('txt-msg').value
+          alert(msg);
+          $('#txt-msg').val('');
+        });
+
+        $('.item').click(function(){
+          $('.item').removeClass("active");
+          $(this).addClass("active");
+          alert($(this).html())
+        });
+
+        $('#h1-num').click(function(){
+          var num = parseInt($(this).html());
+          $(this).html(num + 1);
+
+          if($(this).hasClass('odd')){
+            $(this).removeClass('odd');
+          }else{
+            $(this).addClass('odd');
+          }
+
+        });
+
+        $('#a-about').click(function(){
+          $.get('/about', data => {
+            alert(data)
+          });
+        });
+
       });
     </script>
   </head>
   <body>
+    <a href="#" id="a-about">ABOUT</a><br>
     Khoa pham training
+    <input type="text" id="txt-msg" value=""/>
+    <button id="btn-show">Show</button>
+    <br><br>
+    <p id="btn-get-info">Get info jQuery</p>
+    <h1 id="h1-num">0</h1>
+    <button onclick="getInfo()">Get Info javascript</button>
+    <ul>
+      <li class="item">Android</li>
+      <li class="item">iOS</li>
+      <li class="item">NodeJS</li>
+      <li class="item">ReactJS</li>
+    </ul>
   </body>
 </html>
