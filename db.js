@@ -38,4 +38,4 @@ function likeGirl(id, cb){
     });
 }
 
-likeGirl(1, nlike => console.log(nlike));
+module.exports = {likeGirl, getGirl};

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vote for girl</title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <style media="screen">
+      hr{
+        visibility: hidden;
+      }
+      .a-right{
+        float: right;
+      }
+
+      #app{
+        width: 150px;
+      }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(() => {
+        $('#a-truoc').click(() => {
+        });
+
+        $('#a-sau').click(() => {
+          var nextIndex = parseInt($('#girl-id').val()) + 1;
+          $.get(`/api/info/${nextIndex}`, data => {
+            $('#wrapper').html(data);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1><%=girl.name%></h1>
+      <div id="app">
+        <a href="#" id="a-truoc">Truoc</a>
+        <a href="#" id="a-sau" class="a-right">Sau</a>
+        <input type="hidden" id="girl-id" value="<%=girl.id%>">
+        <hr>
+        <img src="images/<%=girl.image%>" width="150px">
+        <hr>
+        <a href="#"><%=girl.nlike%> Like</a>
+        <a href="#" class="a-right"><%=girl.ndislike%> Dislike</a>
+      </div>
+    </div>
+  </body>
+</html>
