@@ -1,0 +1,24 @@
+{
+  "name": "jquery",
+  "version": "1.0.0",
+  "description": "jquery &amp; ajax 23/11",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanpho93/jquery.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanpho93/jquery/issues"
+  },
+  "homepage": "https://github.com/vanpho93/jquery#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0"
+  }
+}
